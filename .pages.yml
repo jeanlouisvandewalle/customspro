@@ -1,0 +1,59 @@
+# Pages CMS (https://pagescms.org) — beheerformulier voor de nieuwspagina.
+# Elk item in data/news.json is één kaart op de pagina "News".
+content:
+  - name: news
+    label: News
+    type: file
+    path: data/news.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{date} — {title}"
+    fields:
+      - name: title
+        label: Headline
+        type: string
+        required: true
+      - name: summary
+        label: Summary
+        type: text
+        required: true
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - Regulatory update
+            - Case law
+            - Practice insight
+            - Firm news
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: topics
+        label: Topics
+        type: select
+        options:
+          multiple: true
+          values:
+            - { value: classification, label: Classification }
+            - { value: origin, label: Origin }
+            - { value: valuation, label: Valuation }
+            - { value: excise, label: Excise }
+            - { value: export-controls, label: Export controls }
+            - { value: sanctions, label: Sanctions }
+            - { value: cbam, label: CBAM }
+            - { value: eudr, label: EUDR }
+            - { value: aeo, label: AEO }
+            - { value: vat, label: VAT }
+            - { value: ecommerce, label: E-commerce & UCC }
+            - { value: chemicals, label: Chemicals }
+            - { value: authorisations, label: Authorisations }
+            - { value: data, label: Customs data }
+      - name: url
+        label: LinkedIn post URL
+        type: string
+        required: true
